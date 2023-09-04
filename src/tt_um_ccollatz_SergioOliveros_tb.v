@@ -22,7 +22,7 @@ tt_um_ccollatz_SergioOliveros uut(
 
 initial 
     begin
-        N = 7'd81;
+        N = 8'd51;
     end
     
 always #5 clk = ~clk;
@@ -33,6 +33,8 @@ initial begin
         #10
             
         start <= 1'b1;
+        #10
+        start <= 1'b0;
         #10000;        
 end
 endmodule

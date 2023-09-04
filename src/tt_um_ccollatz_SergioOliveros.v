@@ -18,6 +18,7 @@ module tt_um_ccollatz_SergioOliveros(
     parameter inicio = 2'b00;
     parameter par = 2'b01;
     parameter impar = 2'b11;
+    parameter mantener = 2'b10;
     
     wire start;
     reg busy;
@@ -37,15 +38,15 @@ module tt_um_ccollatz_SergioOliveros(
         uio_outr <= rca;               
     end 
    
-    assign eca = (ec)?(16'b1+uio_outr):uio_outr;
-    assign rca = (rc)?16'b0:eca;
+    assign eca = (ec)?(8'b1+uio_outr):uio_outr;
+    assign rca = (rc)?8'b0:eca;
 
     
     always@(posedge clk)
         case (rn)
             2'b00: n <= n;
-            2'b01: n <= n/16'd2;
-            2'b10: n <= ((16'd3)*n)+(16'd1);
+            2'b01: n <= n/8'd2;
+            2'b10: n <= ((8'd3)*n)+(8'd1);
             default: n <= ui_in;
         endcase 
            ////////////////Maquina de estados//////////////////
@@ -65,16 +66,17 @@ module tt_um_ccollatz_SergioOliveros(
                     futuro <= inicio;
                     
             par:
-                if (n!=16'd2 && n[1] == 1'b0)
+                if (n!=8'd2 && n[1] == 1'b0)
                     futuro <= par;
-                else if (n!=16'd2 && n[1] != 1'b0) 
+                else if (n!=8'd2 && n[1] != 1'b0) 
                     futuro <= impar;
                 else 
-                    futuro <= inicio;
+                    futuro <= mantener;
                     
             impar:
                 futuro <= par;              
-                
+            mantener:
+                futuro <= mantener;
             default:
                 futuro <= inicio;
         endcase
@@ -85,6 +87,7 @@ module tt_um_ccollatz_SergioOliveros(
         inicio: {ec,rc,rn[1],rn[0],busy} = 5'b01110;
         par: {ec,rc,rn[1],rn[0],busy} = 5'b10011;
         impar: {ec,rc,rn[1],rn[0],busy} = 5'b10101;
+        mantener: {ec,rc,rn[1],rn[0],busy} = 5'b00000;
         default: {ec,rc,rn[1],rn[0],busy} = 5'b00000;
     endcase
 endmodule
