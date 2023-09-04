@@ -32,10 +32,6 @@
     <li>When the value 1 is reached, the status bit will be cleared, and the counter will hold the number of iterations required.</li>
 </ol>
 
-<h2>Implementation</h2>
-
-<p>The circuit can be implemented using hardware description languages (HDLs) like Verilog or VHDL and synthesized onto an FPGA or ASIC device.</p>
-
 <h2>Future Enhancements</h2>
 
 <p>Possible future enhancements for this project include:</p>
