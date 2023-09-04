@@ -21,17 +21,6 @@
 
 <p>The goal of this project is to design a digital circuit that can test this conjecture for an 8-bit input value, counting the number of iterations required to reach 1 and providing a status indication.</p>
 
-<h2>Circuit Components</h2>
-
-<p>The circuit consists of the following key components:</p>
-
-<ol>
-    <li><strong>8-Bit Input Register:</strong> This register accepts an 8-bit input value, which represents the starting integer for the Collatz sequence.</li>
-    <li><strong>Counter:</strong> The circuit includes a counter to keep track of the number of iterations. It increments with each iteration until the value reaches 1.</li>
-    <li><strong>Logic Unit:</strong> A combinational logic unit performs the Collatz sequence operations based on the input value. It checks whether the number is even or odd, divides or multiplies accordingly, and updates the input value for the next iteration.</li>
-    <li><strong>Status Bit:</strong> A single bit is used as a status indicator. When set, it indicates that the calculation is in progress. When cleared, it signifies the completion of the Collatz sequence.</li>
-</ol>
-
 <h2>Usage</h2>
 
 <p>To use the Collatz conjecture test circuit, follow these steps:</p>
