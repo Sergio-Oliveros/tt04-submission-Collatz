@@ -23,7 +23,7 @@ module tt_um_ccollatz_SergioOliveros(
     wire start;
     reg busy;
     assign uo_out = {{7{1'b0}}, busy};
-    assign start = ena;
+    assign start = ~rst_n;
      
     wire [7:0] rca, eca;
     reg [7:0] n;
