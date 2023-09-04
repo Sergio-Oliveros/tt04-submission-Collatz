@@ -24,7 +24,7 @@ module tt_um_ccollatz_SergioOliveros(
     assign uo_out = {{7{1'b0}}, busy};
     assign start = ena;
      
-    wire [7:0] rca, eca, rna;
+    wire [7:0] rca, eca;
     reg [7:0] n;
     reg ec,rc;
     reg [1:0] rn;
@@ -39,10 +39,7 @@ module tt_um_ccollatz_SergioOliveros(
    
     assign eca = (ec)?(16'b1+uio_outr):uio_outr;
     assign rca = (rc)?16'b0:eca;
-    ////////////////Datapath 2//////////////////
-    always@(posedge clk) begin
-        n <= rna;               
-    end 
+
     
     always@(posedge clk)
         case (rn)
