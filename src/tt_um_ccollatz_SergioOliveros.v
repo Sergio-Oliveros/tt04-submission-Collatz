@@ -4,7 +4,7 @@
 module tt_um_ccollatz_SergioOliveros(
     input clk, //Clock
     input ena, //Start
-    input [7:0] ui_in, //Número de entrada - N
+    input [7:0] ui_in, //Numero de entrada - N
     output reg [7:0] uio_out, //Contador de iteraciones - c
     output wire [7:0] uo_out, //Busy - busy
     output wire [7:0] uio_oe 
@@ -48,11 +48,11 @@ module tt_um_ccollatz_SergioOliveros(
             2'b10: n <= ((16'd3)*n)+(16'd1);
             default: n <= ui_in;
         endcase 
-           ////////////////Máquina de estados//////////////////
+           ////////////////MÃ¡quina de estados//////////////////
     ////////////////Registro de estados//////////////////
     always@(posedge clk)
         presente <= futuro;
-    ////////////////Lógica del estado siguiente//////////////////
+    ////////////////LÃ³gica del estado siguiente//////////////////
     always@(*) begin
         case(presente)
             inicio:
@@ -79,7 +79,7 @@ module tt_um_ccollatz_SergioOliveros(
                 futuro <= inicio;
         endcase
     end
-    ////////////////Lógica de salida//////////////////
+    ////////////////LÃ³gica de salida//////////////////
     always@(*)
         case(presente)  
         inicio: {ec,rc,rn[1],rn[0],busy} = 5'b01110;
