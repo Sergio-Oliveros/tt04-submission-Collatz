@@ -51,11 +51,11 @@ module tt_um_ccollatz_SergioOliveros(
             2'b10: n <= ((16'd3)*n)+(16'd1);
             default: n <= ui_in;
         endcase 
-           ////////////////Máquina de estados//////////////////
+           ////////////////Maquina de estados//////////////////
     ////////////////Registro de estados//////////////////
     always@(posedge clk)
         presente <= futuro;
-    ////////////////Lógica del estado siguiente//////////////////
+    ////////////////Logica del estado siguiente//////////////////
     always@(*) begin
         case(presente)
             inicio:
@@ -82,7 +82,7 @@ module tt_um_ccollatz_SergioOliveros(
                 futuro <= inicio;
         endcase
     end
-    ////////////////Lógica de salida//////////////////
+    ////////////////Logica de salida//////////////////
     always@(*)
         case(presente)  
         inicio: {ec,rc,rn[1],rn[0],busy} = 5'b01110;
