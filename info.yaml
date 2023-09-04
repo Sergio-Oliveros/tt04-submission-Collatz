@@ -28,42 +28,24 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      Explain how your project works
+      The circuit takes an 8-bit input value and produces two outputs: the number of iterations required to reach 1 and a status bit indicating whether the calculation is in progress or complete. Once the process is finished, the circuit keeps the value of the iterations indefinitely so that it can be checked.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Explain how to test your project
+      To test the circuit it is necessary to have as input the clock signal, a number of maximum 8 bits and the rst_n signal to start the iterations. It is taken into account that rst_n is at 0 when it is active, so once it takes this value, the circuit begins to perform the calculations until it reaches 1, then it keeps the values.
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - clk
+    - ena
+    - rst_n
+    - Number to test
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - segment a
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
-    - dot
+    - Process indicator (busy bit)
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - Number of iterations to reach 1 (8 bits number)
 
 # The following fields are optional
   tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
