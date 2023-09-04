@@ -1,13 +1,6 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg)
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>Collatz Conjecture Test Circuit</title>
-</head>
-
-<body>
 
     <h1>Collatz Conjecture Test Circuit</h1>
 
