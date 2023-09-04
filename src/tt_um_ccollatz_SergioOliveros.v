@@ -4,6 +4,7 @@
 module tt_um_ccollatz_SergioOliveros(
     input clk, //Clock
     input ena, //Start
+    input rst_n, //Reset
     input [7:0] ui_in, //Numero de entrada - N
     output reg [7:0] uio_out, //Contador de iteraciones - c
     output wire [7:0] uo_out, //Busy - busy
